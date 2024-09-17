@@ -14,7 +14,7 @@ function checkout(){
   var kodeOrder=[]
 
   user = $( "#nama-p" ).val();
-  alamat = document.getElementById("alamat").value;
+  alamat = document.getElementById("alamat").value +" ,"+document.getElementById("kelurahan").value+" ,"+document.getElementById("kecamatan").value+" ,"+document.getElementById("kode-pos").value;
   pengiriman = document.getElementById("pengiriman").value;
   noHp = $( "#no-hp" ).val();
   catatan = $( "#catatan" ).val();
@@ -64,8 +64,13 @@ function validateForm() {
   let noHp = document.forms["fCustomer"]["noHp"].value;
   let alamat = document.forms["fCustomer"]["alamat"].value;
   let pengiriman = document.forms["fCustomer"]["pengiriman"].value;
-
-  if (nama == "" || noHp == "" || alamat == "" || pengiriman == "Pilih" ) {
+  let kelurahan = document.forms["fCustomer"]["kelurahan"].value;
+  let kecamatan = document.forms["fCustomer"]["kecamatan"].value;
+  let kodePos = document.forms["fCustomer"]["kodePos"].value;
+ 
+  if (nama == "" || noHp == "" || alamat == "" || pengiriman == "Pilih"
+    || kelurahan == "" || kecamatan == "" || kodePos == ""
+   ) {
     document.getElementById("collapseOne").classList.add('show');
     alert("Mohon Lengkapi Data Pengiriman");
     return false;
